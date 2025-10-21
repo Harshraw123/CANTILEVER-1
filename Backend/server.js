@@ -8,7 +8,7 @@ import BlogRouter from './routes/BlogRoute.js';
 
 import AiRouter from './routes/AiRoute.js';
 
-dotenv.config({ path: '.env.local' }); //  Load environment variables
+dotenv.config(); //  Load environment variables
 
 const app = express();
 const port = process.env.PORT || 4000; // ✅ PORT should be uppercase

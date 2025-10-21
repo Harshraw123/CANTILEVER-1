@@ -1,11 +1,14 @@
 import { GoogleGenAI } from "@google/genai";
-import Blog from "../models/BlogModel.js";
+import dotenv from 'dotenv';
+dotenv.config()
 
 
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
-const ai = new GoogleGenAI({
-  apiKey: 'AIzaSyBvIZ8gIwu8_eK6GkcboeyoTDItrk3lcT0'
-});
+if (!process.env.GEMINI_API_KEY) {
+  console.error("❌ GEMINI_API_KEY is not set. Please set it in your .env file.");
+}
+
 
 export const aiGenerateBlog = async (req, res) => {
   try {
