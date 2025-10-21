@@ -47,5 +47,5 @@ Write, manage, and share blogs effortlessly with **AI-assisted content generatio
 
 ---
 
-## Folder Structure
+
 
