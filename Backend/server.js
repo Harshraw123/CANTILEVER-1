@@ -15,7 +15,14 @@ const port = process.env.PORT || 4000;
 
 // Middleware
 app.use(cors({
-  origin: ["http://localhost:5173", "http://localhost:3000", "https://mindcast-ai.netlify.app",'https://cantilever-1.vercel.app'],  
+  origin: [
+    "http://localhost:5173", 
+    "http://localhost:3000", 
+    "https://mindcast-ai.netlify.app",
+    "https://cantilever-1-frontend.vercel.app",
+    "https://cantilever-1.vercel.app",
+    process.env.FRONTEND_URL
+  ].filter(Boolean), // Remove any undefined values
   credentials: true,                // allow cookies / auth headers
 }));
 app.use(express.json()); // 

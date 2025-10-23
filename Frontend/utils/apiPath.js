@@ -1,14 +1,14 @@
 export const BASE_URL =
 	typeof window !== 'undefined' && window.location.hostname === 'localhost'
 		? 'http://localhost:4000'
-		: (import.meta.env.VITE_API_URL || 'https://cantilever-1-backend.vercel.app/');
+		: (import.meta.env.VITE_API_URL || 'https://cantilever-1-backend.vercel.app');
 
 
 export const API_PATHS = {
   AUTH: {
     REGISTER: "/api/user/register", // Signup
     LOGIN: "/api/user/login", // Authenticate user & return JWT token
-    GET_PROFILE: "/api/user/profile", // Get logged-in user details
+    GET_PROFILE: "/api/user/me", // Get logged-in user details
   },
   AI: {
     GENERATE:'/api/ai/generate'

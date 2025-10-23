@@ -12,7 +12,7 @@ BlogRouter.route('/gc')
 
 
  BlogRouter.route('/all')
-  .get(authMiddleware,getAllBlogs)
+  .get(getAllBlogs)
 
 
   BlogRouter.route('/:id/like').put(authMiddleware,toggleLike)
