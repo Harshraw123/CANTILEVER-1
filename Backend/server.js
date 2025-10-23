@@ -11,11 +11,11 @@ import AiRouter from './routes/AiRoute.js';
 dotenv.config(); //  Load environment variables
 
 const app = express();
-const port = process.env.PORT || 4000; // ✅ PORT should be uppercase
+const port = process.env.PORT || 4000; 
 
 // Middleware
 app.use(cors({
-  origin: "https://mindcast-1.netlify.app",  // your frontend URL
+  origin: ["http://localhost:5173", "http://localhost:3000", "https://mindcast-1.netlify.app"],  
   credentials: true,                // allow cookies / auth headers
 }));
 app.use(express.json()); // 
