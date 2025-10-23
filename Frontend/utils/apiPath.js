@@ -1,7 +1,7 @@
 export const BASE_URL =
 	typeof window !== 'undefined' && window.location.hostname === 'localhost'
 		? 'http://localhost:4000'
-		: (import.meta.env.VITE_API_URL || 'http://localhost:4000');
+		: (import.meta.env.VITE_API_URL || 'https://cantilever-1-backend.vercel.app/');
 
 
 export const API_PATHS = {
