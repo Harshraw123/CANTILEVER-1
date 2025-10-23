@@ -15,7 +15,7 @@ const port = process.env.PORT || 4000; // ✅ PORT should be uppercase
 
 // Middleware
 app.use(cors({
-  origin: "https://mindcast-1.netlify.app/",  // your frontend URL
+  origin: "https://mindcast-1.netlify.app",  // your frontend URL
   credentials: true,                // allow cookies / auth headers
 }));
 app.use(express.json()); // 

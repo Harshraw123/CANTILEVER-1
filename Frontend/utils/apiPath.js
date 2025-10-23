@@ -1,8 +1,8 @@
 export const BASE_URL =
 	typeof window !== 'undefined' && window.location.hostname === 'localhost'
 		? 'http://localhost:4000'
-		: (import.meta.env.VITE_API_URL || 'https://ace-forge-ai-backend.vercel.app');
-//change it later
+		: (import.meta.env.VITE_API_URL || 'https://cantilever-1-zjpg.onrender.com');
+
 
 export const API_PATHS = {
   AUTH: {
