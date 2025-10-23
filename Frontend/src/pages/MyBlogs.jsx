@@ -76,33 +76,35 @@ const MyBlogs = () => {
     }
   }
 
-  const handleLike = async (blogId) => {
+  const handleLike = async (e, id) => {
+    e.stopPropagation();
+  
+    // If already liked, stop (optional)
+    if (likedBlogs[id]) return;
+  
     try {
-      const alreadyLiked = likedBlogs[blogId]
-      const result = await axiosInstance.put(API_PATHS.BLOG.LIKE(blogId))
-      
-      // Update the blog with the new like count and likedBy array from the response
-      if (result.data) {
-        setBlogs((prev) =>
-          prev.map((b) =>
-            b.blogId === blogId
-              ? { 
-                  ...b, 
-                  likesCount: result.data.likesCount || 0,
-                  likedBy: result.data.likedBy || []
-                }
-              : b
-          )
+      // Optimistic UI update
+      setLikedBlogs(prev => ({ ...prev, [id]: true }));
+  
+      const res = await axiosInstance.put(API_PATHS.BLOG.LIKE(id));
+      const { likesCount, likedBy } = res.data;
+  
+      setBlogs(prevBlogs =>
+        prevBlogs.map(blog =>
+          blog._id === id ? { ...blog, likesCount, likedBy } : blog
         )
-        setLikedBlogs((prev) => ({ ...prev, [blogId]: !alreadyLiked }))
-      }
-    } catch (error) {
-      console.error("Error liking blog:", error)
-      toast.error("Failed to like the blog.")
+      );
+    } catch (err) {
+      console.error("Like error:", err);
+      toast.error("Failed to like post");
+  
+      // Revert optimistic update if failed
+      setLikedBlogs(prev => ({ ...prev, [id]: false }));
     }
-  }
+  };
+  
 
-  // Helper function to check if current user has liked a blog
+
   const hasUserLiked = (blog) => {
     if (!currentUser?._id || !blog.likedBy) return false;
     
@@ -284,7 +286,7 @@ const MyBlogs = () => {
 
                     <div className="flex items-center gap-4 pt-4 border-t border-border">
                       <div
-                        onClick={() => handleLike(blog.blogId)}
+                 onClick={(e) => handleLike(e, blog._id)}
                         className="flex items-center gap-2 cursor-pointer select-none transition-transform hover:scale-110"
                       >
                         <Heart
