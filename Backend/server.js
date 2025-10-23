@@ -15,7 +15,7 @@ const port = process.env.PORT || 4000;
 
 // Middleware
 app.use(cors({
-  origin: ["http://localhost:5173", "http://localhost:3000", "https://mindcast-1.netlify.app"],  
+  origin: ["http://localhost:5173", "http://localhost:3000", "https://mindcast-ai.netlify.app"],  
   credentials: true,                // allow cookies / auth headers
 }));
 app.use(express.json()); // 
