@@ -24,6 +24,9 @@ app.use(express.urlencoded({ extended: true }));
 // DB Connect
 connectDB(); 
 
+app.get('/', (req, res) => {
+  res.send('Hello from the server! The app is working.'); // Send some text or HTML
+});
 // Routes
 app.use('/api/user',userRouter)
 
