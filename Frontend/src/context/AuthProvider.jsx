@@ -54,6 +54,8 @@ export const AuthProvider = ({ children }) => {
       navigate("/");
     } catch (err) {
       console.error("Login failed:", err.response?.data || err.message);
+      // Clear any invalid token
+      localStorage.removeItem("token");
       throw err;
     }
   };
@@ -67,6 +69,8 @@ export const AuthProvider = ({ children }) => {
       navigate("/");
     } catch (err) {
       console.error("Signup failed:", err.response?.data || err.message);
+      // Clear any invalid token
+      localStorage.removeItem("token");
       throw err;
     }
   };

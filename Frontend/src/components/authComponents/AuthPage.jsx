@@ -21,7 +21,8 @@ export default function AuthPage() {
         await signup({ name: form.name, email: form.email, password: form.password });
       }
     } catch (err) {
-      setError(err.response?.data?.message || "Authentication failed");
+      console.error("Auth error:", err);
+      setError(err.response?.data?.message || err.message || "Authentication failed");
     } finally {
       setIsSubmitting(false);
     }
