@@ -21,7 +21,7 @@ export const BlogMetadata = ({
   setTags,
   tagInput,
   setTagInput,
-  imagePreview,
+
   setImagePreview,
   setFeaturedImage,
 }) => {
@@ -119,16 +119,24 @@ export const BlogMetadata = ({
             </Button>
           </div>
           <div className="mt-3 flex flex-wrap gap-2">
-            {tags.map((tag) => (
-              <Badge key={tag} variant="secondary" className="gap-1.5 py-1.5 px-3 text-sm">
-                {tag}
-                <X
-                  className="h-3.5 w-3.5 cursor-pointer hover:text-destructive transition-colors"
-                  onClick={() => handleRemoveTag(tag)}
-                />
-              </Badge>
-            ))}
-          </div>
+  {tags.map((tag) => (
+    <Badge
+      key={tag}
+      variant="secondary"
+      className="gap-1.5 py-1.5 px-3 text-sm flex items-center"
+    >
+      {tag}
+      <button
+        type="button"
+        onClick={() => handleRemoveTag(tag)}
+        className="ml-1 cursor-pointer hover:text-destructive transition-colors"
+      >
+        <X className="h-3.5 w-3.5" />
+      </button>
+    </Badge>
+  ))}
+</div>
+
         </div>
 
         <div>
