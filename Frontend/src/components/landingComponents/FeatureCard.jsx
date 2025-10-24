@@ -36,11 +36,8 @@ const FeatureCard = ({ date, category, title, image, className }) => {
                 {date}
               </span>
             )}
-            {category && (
-              <span className="px-5 py-2 bg-white/20 border border-white/30 backdrop-blur-sm rounded-full text-[13px] font-medium text-white tracking-wide">
-                • {category}
-              </span>
-            )}
+          
+ 
           </div>
 
           {/* Bottom Content */}

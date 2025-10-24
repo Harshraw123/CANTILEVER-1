@@ -41,9 +41,9 @@ export default function AuthPage() {
         <div className="flex justify-center mb-6">
           <div className="p-3 bg-gray-900 rounded-xl shadow-md">
             {isLogin ? (
-              <LogIn className="w-7 h-7 text-black" />
+              <LogIn className="w-7 h-7 text-white" />
             ) : (
-              <UserPlus className="w-7 h-7 text-black" />
+              <UserPlus className="w-7 h-7 text-white" />
             )}
           </div>
         </div>
