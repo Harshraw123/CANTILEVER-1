@@ -18,7 +18,7 @@ app.use(cors({
   origin: [
     "http://localhost:5173", 
     "http://localhost:3000", 
-    "https://mindcast-ai.netlify.app",
+    "https://mindcast1-web.netlify.app",
     "https://cantilever-1-frontend.vercel.app",
     "https://cantilever-1.vercel.app",
     process.env.FRONTEND_URL
