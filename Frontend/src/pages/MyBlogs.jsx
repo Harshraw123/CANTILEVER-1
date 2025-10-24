@@ -271,7 +271,16 @@ const MyBlogs = () => {
                       </div>
 
                       <h3 className="text-xl font-bold mb-2 line-clamp-2">{blog.title}</h3>
-                      <p className="text-muted-foreground text-sm mb-4 line-clamp-2">{blog.content}</p>
+                      <div className="text-muted-foreground text-sm mb-4 line-clamp-2">
+  {/<[a-z][\s\S]*>/i.test(blog.content) ? (
+    <div
+      dangerouslySetInnerHTML={{ __html: blog.content }}
+    />
+  ) : (
+    <p>{blog.content}</p>
+  )}
+</div>
+
 
                       {blog.tags?.length > 0 && (
                         <div className="flex flex-wrap gap-2 mb-4">

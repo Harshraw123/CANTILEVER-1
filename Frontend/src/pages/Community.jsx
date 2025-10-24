@@ -188,12 +188,15 @@ const Community = () => {
               </div>
 
               {/* Blog Content */}
-              <div className="mb-6">
-                <h2 className="text-3xl font-bold mb-3 text-foreground">{blog.title}</h2>
-                <p className="text-muted-foreground text-lg line-clamp-2">
-                  {blog.content}
-                </p>
-              </div>
+              <div className="text-muted-foreground text-lg line-clamp-2">
+  {/<[a-z][\s\S]*>/i.test(blog.content) ? (
+    <div
+      dangerouslySetInnerHTML={{ __html: blog.content }}
+    />
+  ) : (
+    <p>{blog.content}</p>
+  )}
+</div>
 
               {/* Featured Image */}
               {blog.featuredImage && (
